@@ -18,21 +18,24 @@ const App = () => {
 
     useEffect(()=>{
 
+        /*eslint-disable */
+       
         const storedScore = localStorage.getItem('score')
 
         if(storedScore === null){
             localStorage.setItem('score', 0)
         }
-            setScore(parseInt(storedScore))
-            localStorage.setItem('score', score)
+         setScore(score)
+        localStorage.setItem('score', score)
+        
+    }, [score])
 
-    }, [])
-
+    /*eslint-enable */
     useEffect(()=>{
         if(score<0){
             setScore(0)
         }
-        localStorage.setItem('score', score)
+
     }, [score])
 
     const validateGame = (param) => {
