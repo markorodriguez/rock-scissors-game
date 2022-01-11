@@ -10,6 +10,7 @@ const App = () => {
     const [score, setScore] = useState(0)
     const [msg, setMsg] = useState("You Win");
 
+
     const getSelectedValue = (value) => {
         validateGame(value);
         setStarted(true);
@@ -21,13 +22,17 @@ const App = () => {
 
         if(storedScore === null){
             localStorage.setItem('score', 0)
-        } else {
-            localStorage.setItem('score', parseInt(storedScore))
         }
+            setScore(parseInt(storedScore))
+            localStorage.setItem('score', score)
 
+    }, [])
+
+    useEffect(()=>{
         if(score<0){
             setScore(0)
         }
+        localStorage.setItem('score', score)
     }, [score])
 
     const validateGame = (param) => {
