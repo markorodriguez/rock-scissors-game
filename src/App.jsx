@@ -22,22 +22,12 @@ const App = () => {
         if(storedScore === null){
             localStorage.setItem('score', 0)
         } else {
-            setScore(parseInt(storedScore))
+            localStorage.setItem('score', parseInt(storedScore))
         }
-
-    }, [])
-
-    useEffect(()=>{
-
 
         if(score<0){
             setScore(0)
-        } 
-
-        localStorage.setItem('score', score)
-
-        
-
+        }
     }, [score])
 
     const validateGame = (param) => {
