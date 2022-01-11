@@ -17,13 +17,12 @@ const App = () => {
 
     useEffect(()=>{
 
-        const storedScore = parseInt(localStorage.getItem('score'))
-
+        const storedScore = localStorage.getItem('score')
 
         if(storedScore === null){
             localStorage.setItem('score', 0)
         } else {
-            setScore(storedScore)
+            setScore(parseInt(storedScore))
         }
 
     }, [])
